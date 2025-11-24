@@ -1,23 +1,20 @@
 package com.example.ecommerce.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ShoppingCartItem {
     private Product product;
-    private int quantidade;
+    private int quantity;
 
-    public ShoppingCartItem() {}
-
-    public ShoppingCartItem(Product product, int quantidade) {
-        this.product = product;
-        this.quantidade = quantidade;
-    }
-
-    public Product getProduto() { return product; }
-    public void setProduto(Product product) { this.product = product; }
-
-    public int getQuantidade() { return quantidade; }
-    public void setQuantidade(int quantidade) { this.quantidade = quantidade; }
 
     public Double getSubtotal() {
-        return product.getPrice() * quantidade;
+        return product.getPrice() * quantity;
     }
 }

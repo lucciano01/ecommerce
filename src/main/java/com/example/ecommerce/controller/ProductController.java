@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/produtos")
+@RequestMapping("/products")
 public class ProductController {
 
     private final ProductService productService;
@@ -18,20 +18,18 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> criar(@RequestBody Product product){
+    public ResponseEntity<Product> create(@RequestBody Product product){
         Product salvo = productService.save(product);
         return ResponseEntity.ok(salvo);
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> listar(){
+    public ResponseEntity<List<Product>> listAll(){
         return ResponseEntity.ok(productService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> buscar(@PathVariable Long id){
-        return productService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Product> find(@PathVariable Long id){
+        return ResponseEntity.ok(productService.findById(id));
     }
 }
