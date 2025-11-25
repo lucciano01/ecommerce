@@ -21,7 +21,7 @@ public class Product {
     private Long id;
 
     @Column(nullable = false)
-    @NotNull(message = "Nome é obrigatório")
+    @NotNull(message = "O nome do produto é obrigatório")
     private String description;
 
     @Column(nullable = false)
