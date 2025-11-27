@@ -44,4 +44,8 @@ public class ShoppingCartService {
     public Optional<ShoppingCart> findShoppingCart(Long id) {
         return shoppingCarRepository.findById(id);
     }
+
+    public Double getTotalShoppingCart(ShoppingCart shoppingCart){
+        return shoppingCart.getTotal();
+    }
 }
